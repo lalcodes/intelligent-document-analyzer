@@ -44,8 +44,8 @@ Follow these steps to set up and run the project locally using Docker.
 
 1.  **Clone the repository:**
     ```bash
-    git clone <your-repository-url>
-    cd <your-repository-name>
+    git clone <https://github.com/lalcodes/intelligent-document-analyzer.git>
+    cd <repository-name>
     ```
 
 2.  **Create your environment file:**
