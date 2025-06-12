@@ -1,0 +1,312 @@
+/* Global styles and font imports */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap');
+
+body {
+    margin: 0;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+      'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+      sans-serif;
+    background-color: #eef2f9;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* Main container for the entire application */
+.app-container {
+    width: 90vw;
+    max-width: 1400px;
+    height: 90vh;
+    background-color: #ffffff;
+    border-radius: 16px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+    display: flex;
+    flex-direction: column;
+    padding: 24px;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+.app-title {
+    text-align: center;
+    color: #1a202c;
+    font-weight: 700;
+    margin-top: 0;
+    margin-bottom: 24px;
+    font-size: 50px;
+}
+
+.main-content {
+    display: flex;
+    flex: 1;
+    gap: 24px;
+    min-height: 0;
+}
+
+/* Left Column: Chat Section */
+.chat-section {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    background-color: #f7fafc;
+    border-radius: 12px;
+    border: 1px solid #6a77a1;
+    overflow: hidden;
+}
+
+.chat-window {
+    flex-grow: 1;
+    overflow-y: auto;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.empty-chat-message {
+    margin: auto;
+    text-align: center;
+    color: #718096;
+}
+
+.message {
+    padding: 12px 20px;
+    border-radius: 20px;
+    max-width: 80%;
+    line-height: 1.5;
+    word-wrap: break-word;
+}
+
+.message p {
+    margin: 0;
+}
+
+.user-message {
+    background-color: #4299e1;
+    color: white;
+    align-self: flex-end;
+    border-bottom-right-radius: 4px;
+}
+
+.bot-message {
+    background-color: #e2e8f0;
+    color: #1a202c;
+    align-self: flex-start;
+    border-bottom-left-radius: 4px;
+}
+
+.input-area {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 20px;
+    border-top: 1px solid #e2e8f0;
+    background-color: #fff;
+}
+
+.query-input {
+    flex-grow: 1;
+    border: none;
+    outline: none;
+    font-size: 16px;
+    background: transparent;
+    color: #2d3748;
+}
+
+.query-input::placeholder {
+    color: #a0aec0;
+}
+
+.query-input:disabled {
+    cursor: not-allowed;
+}
+
+.icon-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #718096;
+    padding: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    transition: background-color 0.2s;
+}
+
+.icon-button:hover {
+    background-color: #edf2f7;
+}
+
+.icon-button:disabled {
+    color: #cbd5e0;
+    cursor: not-allowed;
+}
+
+.send-button {
+    color: #4299e1;
+}
+
+.send-button:hover {
+    background-color: #bee3f8;
+}
+
+/* Right Column: File Preview Section */
+.file-preview-section {
+    flex: 1;
+    background-color: #e1e8ec;
+    border: 1px dashed #2d5fa0;
+    border-radius: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    padding: 8px; /* Add some padding */
+    box-sizing: border-box;
+}
+
+.file-preview-placeholder {
+    color: #a0aec0;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.file-preview-frame {
+    width: 100%;
+    height: 100%;
+    border: none;
+    border-radius: 8px;
+}
+
+/* --- MODIFIED: Image Preview Styles --- */
+.image-preview-container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative; /* For positioning child elements */
+}
+
+.image-preview-fit {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    border-radius: 8px;
+}
+
+.zoom-button {
+    position: absolute;
+    bottom: 15px;
+    right: 15px;
+    background-color: rgba(0, 0, 0, 0.6);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 44px;
+    height: 44px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    opacity: 0;
+    transition: opacity 0.2s ease-in-out;
+    z-index: 10;
+}
+
+/* --- NEW: Navigation Arrow Styles --- */
+.nav-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.6);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 44px;
+    height: 44px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    opacity: 0;
+    transition: opacity 0.2s ease-in-out;
+    z-index: 10;
+}
+
+.prev-arrow {
+    left: 15px;
+}
+
+.next-arrow {
+    right: 15px;
+}
+
+/* --- NEW: Image Counter Styles --- */
+.image-counter {
+    position: absolute;
+    top: 15px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgba(0, 0, 0, 0.6);
+    color: white;
+    padding: 4px 12px;
+    border-radius: 12px;
+    font-size: 14px;
+    font-weight: 500;
+    opacity: 0;
+    transition: opacity 0.2s ease-in-out;
+    z-index: 10;
+}
+
+
+.image-preview-container:hover .zoom-button,
+.image-preview-container:hover .nav-arrow,
+.image-preview-container:hover .image-counter {
+    opacity: 1; /* Show buttons and counter on hover */
+}
+
+/* --- Zoom Modal Styles (unchanged) --- */
+.zoom-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.85);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.zoom-modal-content {
+    max-width: 95%;
+    max-height: 95%;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+}
+
+.zoom-close-button {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+    font-size: 2rem;
+    z-index: 1001;
+}
+
+.footer-credit {
+  text-align: center;
+  padding-top: 16px;
+  margin-top: auto;
+  font-size: 12px;
+  color: #718096;
+}

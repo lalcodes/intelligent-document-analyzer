@@ -1,0 +1,23 @@
+# Python virtual environment
+.venv/
+venv/
+env/
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+models/
+
+# Environment variables
+Key_config.env
+
+# Temporary files created by the application
+uploaded_files/
+vector_DB/
+temp_ocr_text.txt
+
+# IDE and editor folders
+.vscode/
+.idea/
