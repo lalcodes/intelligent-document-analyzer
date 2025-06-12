@@ -1,80 +1,77 @@
-# intelligent-document-analyzer
-DocChat AI
-DocChat AI
-DocChat is a full-stack web application that allows you to upload documents (images or PDFs) and ask questions about their content using a powerful OCR and RAG pipeline.
+# DocChat AI: Intelligent Document Q&A
 
-Features
-Smart Document Upload: Supports multiple image uploads or single PDF uploads.
+DocChat is a full-stack web application that allows you to upload documents (images or PDFs) and have a conversation about their content. It uses a powerful local AI pipeline to understand the documents and answer your questions.
 
-Hybrid PDF Processing: Automatically detects if a PDF is text-based (for fast text extraction) or scanned (for image conversion and OCR).
+## Features
 
-Intelligent Q&A: Uses a local RAG (Retrieval-Augmented Generation) pipeline with a Llama 2 model to answer questions based on the document's content.
+### **Advanced Document Handling**
+* **Smart Upload:** Supports flexible document uploads, including multiple images or a single PDF per session.
+* **Hybrid PDF Processing:** Automatically detects if a PDF is text-based (for fast, direct text extraction) or scanned (for automatic conversion to images and OCR).
 
-Interactive Frontend: A clean, modern, and responsive user interface built with React, featuring an image gallery viewer with zoom functionality.
+### **Core AI Engine**
+* **Powerful OCR:** Leverages the Together AI API for accurate text recognition from images and scanned documents.
+* **Intelligent Q&A:** Uses a local RAG (Retrieval-Augmented Generation) pipeline with a Llama 2 model to provide context-aware answers.
 
-Tech Stack
-Frontend:
+---
 
-React.js
+---
 
-Backend:
+## Tech Stack
 
-FastAPI (Python web framework)
+| Category      | Technology                                             |
+|---------------|--------------------------------------------------------|
+| **Frontend** | React.js                         |
+| **Backend** | FastAPI (Python)                                       |
+| **AI / ML** | LangChain, Llama.cpp, Hugging Face, Together AI API    |
+| **Database** | ChromaDB (Vector Store)                                |
+| **PDF Tools** | PyMuPDF, pdf2image                                     |
 
-Together AI API (for Vision/OCR)
+---
 
-LangChain (for the RAG pipeline)
 
-Llama.cpp & Hugging Face models (for local LLM inference)
+---
 
-ChromaDB (for vector storage)
+## Getting Started
 
-PyMuPDF & pdf2image (for smart PDF processing)
+Follow these steps to set up and run the project locally using Docker.
 
-Getting Started
-Follow these steps to set up and run the project locally.
+### Prerequisites
+* Docker and Docker Compose installed.
+* Git installed.
+* An API key from [Together AI](https://www.together.ai/).
 
-Prerequisites
-Docker and Docker Compose installed.
+### Installation & Running
 
-Git installed.
+1.  **Clone the repository:**
+    ```bash
+    git clone <your-repository-url>
+    cd <your-repository-name>
+    ```
 
-A Key_config.env file in the docchat-backend directory with your TOGETHER_API_KEY.
+2.  **Create your environment file:**
+    * Inside the `docchat-backend/` directory, create a file named `Key_config.env`.
+    * Add your API key to this file:
+        ```
+        TOGETHER_API_KEY="your_actual_api_key_here"
+        ```
 
-Installation & Running
-Clone the repository:
+3.  **Build and run with Docker Compose:**
+    * From the root directory of the project, run the following command:
+        ```bash
+        docker-compose up --build
+        ```
+    * **Note:** The first time you run this, it will take a significant amount of time to download the base images and the local language models (several gigabytes). Please be patient.
 
-git clone <your-repository-url>
-cd <your-repository-name>
+### Accessing the Application
+-   **Frontend:** `http://localhost:3000`
+-   **Backend API:** `http://localhost:8000`
 
-Create your environment file:
+---
 
-Inside the docchat-backend/ directory, create a file named Key_config.env.
+## Usage
 
-Add your API key to this file:
-
-TOGETHER_API_KEY="your_actual_api_key_here"
-
-Build and run with Docker Compose:
-
-From the root directory of the project (docchat_project/), run:
-
-docker-compose up --build
-
-The first time you run this, it will take a long time to download the base images and the local language models.
-
-Accessing the Application
-Frontend: Open your web browser and navigate to http://localhost:3000
-
-Backend API: The API will be running at http://localhost:8000
-
-Usage
-Open the application in your browser.
-
-Click the paperclip icon to select and upload multiple images or a single PDF.
-
-Wait for the "Document processed" message to appear in the chat.
-
-Type your question into the input box and press Enter or click the send icon.
-
-View the model's answer in the chat window.
+1.  Open the application in your browser.
+2.  Click the paperclip icon to select and upload multiple images or a single PDF.
+3.  Wait for the "Document processed" message to appear in the chat.
+4.  Type your question into the input box and press Enter or click the send icon.
+5.  Model responses in the chat window.
