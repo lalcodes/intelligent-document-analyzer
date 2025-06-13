@@ -1,0 +1,31 @@
+version: '3.8'
+
+services:
+  # The Backend Service (FastAPI)
+  backend:
+    build: ./docchat-backend
+    # Name the container for easier reference
+    container_name: docchat_backend
+    ports:
+      - "8000:8000"
+    volumes:
+      # Mount local folders into the container to persist data across restarts
+      - ./docchat-backend/models:/app/models
+      - ./docchat-backend/vector_DB:/app/vector_DB
+      # Ensure the API key file is available to the container
+      - ./docchat-backend/Key_config.env:/app/Key_config.env
+    # Restart policy
+    restart: unless-stopped
+
+  # The Frontend Service (React)
+  frontend:
+    build: ./docchat-frontend
+    container_name: docchat_frontend
+    ports:
+      # Map host port 3000 to container port 80 (where Nginx serves)
+      - "3000:80"
+    depends_on:
+      # This ensures the backend service starts before the frontend service
+      - backend
+    restart: unless-stopped
+

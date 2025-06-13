@@ -1,0 +1,23 @@
+# Python virtual environment
+.venv/
+venv/
+env/
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Environment variables (this will be mounted as a volume)
+Key_config.env
+
+# Large data/runtime folders (these will be mounted as volumes)
+models/
+vector_DB/
+uploaded_files/
+temp_ocr_text.txt
+
+# IDE and editor folders
+.vscode/
+.idea/

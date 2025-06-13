@@ -3,8 +3,11 @@ import axios from 'axios';
 import { FiPaperclip, FiSend, FiZoomIn, FiX, FiChevronLeft, FiChevronRight } from 'react-icons/fi';
 import './App.css';
 
-const UPLOAD_URL = 'http://127.0.0.1:8000/upload';
-const ASK_URL = 'http://127.0.0.1:8000/ask';
+//const UPLOAD_URL = 'http://127.0.0.1:8000/upload';
+//const ASK_URL = 'http://127.0.0.1:8000/ask';
+
+const UPLOAD_URL = '/api/upload';
+const ASK_URL = '/api/ask';
 
 function App() {
   const [messages, setMessages] = useState([]);
