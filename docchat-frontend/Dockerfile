@@ -1,5 +1,4 @@
 # Stage 1: Build the React application
-# MODIFIED: Changed 'as' to 'AS' for consistent casing
 FROM node:20-alpine AS builder
 
 WORKDIR /app
